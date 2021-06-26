@@ -30,7 +30,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List data = [];
   var getId;
-
   Future _atualizar() async {
     var url = Uri.parse('https://api-pokemon-fatec.herokuapp.com/pokemons');
     http.Response response =

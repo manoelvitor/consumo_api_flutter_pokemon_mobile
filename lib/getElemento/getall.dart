@@ -1,9 +1,7 @@
 import 'dart:convert';
-//import 'dart:convert' show utf8;
 
 import 'package:consumo_api/home.dart';
 import 'package:flutter/material.dart';
-//import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
 class MyApp extends StatelessWidget {
@@ -124,15 +122,10 @@ class _MyHomePageState extends State<MyHomePage> {
       context: context,
       builder: (BuildContext context) {
         return alerta;
-      },
+      }
     );
   }
 
-// Card(
-//       child: ListTile(
-//         leading: FlutterLogo(),
-//         title: Text('One-line with leading widget'),
-//       ),
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -192,44 +185,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               fontFamily: 'Arial')))
                 ],
               ),
-              // child: Image(image: NetworkImage(data[index]['imagem']), height: 200,
             );
           }),
     );
   }
 }
 
-// // }
-
-// @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           title: Text("Cotação do Dólar WS!"),
-//           centerTitle: true,
-//         ),
-//         body: Center(
-//           child: Container(
-//             padding: EdgeInsets.all(40),
-//             child: Column(
-//                 //mainAxisAlignment: MainAxisAlignment.center,
-//                 crossAxisAlignment: CrossAxisAlignment.center,
-//                 children: [
-//                   Padding(
-//                     padding: EdgeInsets.only(top: 10, bottom: 10),
-//                     child: Text(
-//                       "ola",
-//                       style: TextStyle(fontSize: 15, color: Colors.yellow),
-//                     ),
-//                   ),
-
-//                   TextButton(
-//                       onPressed: _atualizar,
-//                       child: Text("Atualizar",
-//                           style: TextStyle(fontSize: 30.0, color: Colors.blue)))
-
-//                 ]),
-//           ),
-//         ));
-//   }
-//}

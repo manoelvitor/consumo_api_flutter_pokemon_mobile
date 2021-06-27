@@ -41,86 +41,86 @@ class _PegarElementoState extends State<PegarElemento> {
 
   Future showAlertDialog(BuildContext context, id) async {
     var url1 =
-         Uri.parse("https://api-pokemon-fatec.herokuapp.com/pokemons/$id");
-     http.Response response =
-         await http.get(url1, headers: {"Accept": "application/json"});
-     setState(() {
-       getId = json.decode(response.body);
-     });
+        Uri.parse("https://api-pokemon-fatec.herokuapp.com/pokemons/$id");
+    http.Response response =
+        await http.get(url1, headers: {"Accept": "application/json"});
+    setState(() {
+      getId = json.decode(response.body);
+    });
 
-     Widget okButton = FlatButton(
-         child: Text("Voltar a lista"),
-         onPressed: () => Navigator.of(this.context).pop(true));
+    Widget okButton = FlatButton(
+        child: Text("Voltar a lista"),
+        onPressed: () => Navigator.of(this.context).pop(true));
 
-     var alertDialog = AlertDialog(
-       title: Text(
-         getId['nome'],
-         textAlign: TextAlign.center,
-         style: TextStyle(
-             color: Colors.red, fontSize: 25, fontFamily: 'RobotoMono'),
-       ),
-       content: Container(
-           child: Column(
-         children: [
-           Image(
-             image: NetworkImage(getId['imagem']),
-             height: 150,
-           ),
-           ListTile(
-             tileColor: Colors.indigo[50],
-             leading: CircleAvatar(
-               backgroundImage: NetworkImage(getId['elemento']['iconeElemento']),
-               backgroundColor: Colors.white,
-             ),
-             title: Text("Elemento:"),
-             subtitle: Text(
-               getId['elemento']['nomeElemento'],
-             ),
-           ),
-           ListTile(
-             tileColor: Colors.indigo[50],
-             leading: CircleAvatar(
-               backgroundImage:
-                   NetworkImage(getId['fracoContra'][0]['iconeElemento']),
-               backgroundColor: Colors.white,
-             ),
-             title: Text("Fraqueza:"),
-             subtitle: Text(
-               getId['fracoContra'][0]['nomeElemento'],
-             ),
-           ),
-           ListTile(
-             tileColor: Colors.indigo[50],
-             title: Text("Região:"),
-             subtitle: Text(
-               getId['regiao']['nomeRegiao'],
-             ),
-           ),
-           ListTile(
-             tileColor: Colors.indigo[50],
-             title: Text("Descrição:"),
-             subtitle: Text(
-               getId['descricao'],
-             ),
-           )
-         ],
-       )),
-       actions: [
-         RaisedButton(
-             child: Text("Voltar"),
-             textColor: Colors.white,
-             color: Colors.red,
-             onPressed: () => Navigator.of(context, rootNavigator: true).pop())
-       ],
-     );
-     AlertDialog alerta = alertDialog;
-     showDialog(
-       context: context,
-       builder: (BuildContext context) {
-         return alerta;
-       },
-     );
-   }  
+    var alertDialog = AlertDialog(
+      title: Text(
+        getId['nome'],
+        textAlign: TextAlign.center,
+        style: TextStyle(
+            color: Colors.red, fontSize: 25, fontFamily: 'RobotoMono'),
+      ),
+      content: Container(
+          child: Column(
+        children: [
+          Image(
+            image: NetworkImage(getId['imagem']),
+            height: 150,
+          ),
+          ListTile(
+            tileColor: Colors.indigo[50],
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(getId['elemento']['iconeElemento']),
+              backgroundColor: Colors.white,
+            ),
+            title: Text("Elemento:"),
+            subtitle: Text(
+              getId['elemento']['nomeElemento'],
+            ),
+          ),
+          ListTile(
+            tileColor: Colors.indigo[50],
+            leading: CircleAvatar(
+              backgroundImage:
+                  NetworkImage(getId['fracoContra'][0]['iconeElemento']),
+              backgroundColor: Colors.white,
+            ),
+            title: Text("Fraqueza:"),
+            subtitle: Text(
+              getId['fracoContra'][0]['nomeElemento'],
+            ),
+          ),
+          ListTile(
+            tileColor: Colors.indigo[50],
+            title: Text("Região:"),
+            subtitle: Text(
+              getId['regiao']['nomeRegiao'],
+            ),
+          ),
+          ListTile(
+            tileColor: Colors.indigo[50],
+            title: Text("Descrição:"),
+            subtitle: Text(
+              getId['descricao'],
+            ),
+          )
+        ],
+      )),
+      actions: [
+        RaisedButton(
+            child: Text("Voltar"),
+            textColor: Colors.white,
+            color: Colors.red,
+            onPressed: () => Navigator.of(context, rootNavigator: true).pop())
+      ],
+    );
+    AlertDialog alerta = alertDialog;
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alerta;
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -172,8 +172,8 @@ class _PegarElementoState extends State<PegarElemento> {
                       image: NetworkImage(data[index]['imagem']), height: 150),
                   RaisedButton(
                       color: Colors.red,
-                      onPressed: () => 
-                      showAlertDialog(context, data[index]['id']),
+                      onPressed: () =>
+                          showAlertDialog(context, data[index]['id']),
                       child: Text("Detalhes",
                           style: TextStyle(
                               fontSize: 15.0,
